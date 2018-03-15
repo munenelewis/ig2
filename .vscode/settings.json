@@ -1,0 +1,6 @@
+{
+    "python.linting.enabled": false,
+    "python.pythonPath": "/usr/bin/python3.6",
+    "python.formatting.provider": "yapf",
+    "git.ignoreLimitWarning": true
+}

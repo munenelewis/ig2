@@ -1,0 +1,47 @@
+
+
+
+    {% block content %}
+    <style>
+        .login{
+            
+            text-align: center;
+            margin-top: 189px;
+            border: solid;
+            background: indianred;
+
+        }
+    </style>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.js"></script>
+    
+    </head>
+        <div class="login">
+
+            <form action="" method="post">
+                {% csrf_token %}
+        {{ form.as_p }}
+        <button class="ui right labeled icon button" type="submit">
+            <i class="right arrow icon"></i>
+            Next
+          </button>
+            </form>
+
+            dont have an account? click her to register                                     <a href="{% url 'register'  %}">            <button class="ui positive basic button">Positive</button>
+            </a>
+
+        
+
+        </div>
+
+    
+
+            
+        {% endblock  %}
+
+    

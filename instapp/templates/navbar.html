@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.js"></script>
+
+    <style type="text/css">
+        .ui.card,
+        .ui.cards>.card {
+            /* max-width: 100%; */
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 445px;
+            min-height: 0;
+            background: #fff;
+            padding: 0;
+            border: none;
+            border-radius: .28571429rem;
+            -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+            box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+            -webkit-transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+            transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+            transition: box-shadow .1s ease, transform .1s ease;
+            transition: box-shadow .1s ease, transform .1s ease, -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+            z-index: '';
+        }
+        
+        .ui[class*="right fixed"].menu {
+            border-top: none;
+            border-bottom: none;
+            border-right: none;
+            top: 158px;
+            bottom: auto;
+            height: 100%;
+            margin-right: 141px;
+        }
+        
+        ui.mini.image,
+        .ui.mini.images .image,
+        .ui.mini.images img,
+        .ui.mini.images svg {
+            width: 54px;
+            height: auto;
+            font-size: .78571429rem;
+        }
+        
+        .ui.menu:not(.vertical) .item>.input {
+            position: relative;
+            top: 0;
+            margin: -.5em 0;
+            width: 235px;
+        }
+        /* For desktop: */
+        
+        .col-1 {
+            width: 8.33%;
+        }
+        
+        .col-2 {
+            width: 16.66%;
+        }
+        
+        .col-3 {
+            width: 25%;
+        }
+        
+        .col-4 {
+            width: 33.33%;
+        }
+        
+        .col-5 {
+            width: 41.66%;
+        }
+        
+        .col-6 {
+            width: 50%;
+        }
+        
+        .col-7 {
+            width: 58.33%;
+        }
+        
+        .col-8 {
+            width: 66.66%;
+        }
+        
+        .col-9 {
+            width: 75%;
+        }
+        
+        .col-10 {
+            width: 83.33%;
+        }
+        
+        .col-11 {
+            width: 91.66%;
+        }
+        
+        .col-12 {
+            width: 100%;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+        
+        input {
+            width: 560px;
+            border-bottom-color: white;
+            border-top-color: white;
+            border-style: none;
+            height: 34px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var clicks = 0;
+
+        function updateClickCount() {
+            document.getElementById("clickCount").innerHTML = clicks;
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <div class="ui top fixed menu" style="
+    height: 38px">
+        <div class="ui  three item  menu">
+            <div class=" item">
+                <i class=" big instagram icon"></i>
+                <b>Instagram</b>
+            </div>
+            <div class="item">
+
+                <form class="form-inline" role="search" action="{% url 'search_results' %} ">
+
+                    <div class="ui left icon input">
+                        <input type="search" placeholder="Search users..." name="profile">
+                        <i class=" users icon"></i>
+                    </div>
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+            </div>
+            <div class="item">
+                <a href="https://www.facebook.com/hunda.lewis" style="color:black"> </a>
+                <i class=" large compass outline icon" style="color:black"></i>
+                <i class=" large heart outline icon" style="color:black"></i>
+                <a href="{% url 'profile'  %}">
+                    <i class=" large user outline icon" style="color:black"></i>
+
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>

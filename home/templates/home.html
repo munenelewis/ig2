@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.js"></script>
+
+    <style type="text/css">
+        .ui.card,
+        .ui.cards>.card {
+            /* max-width: 100%; */
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 445px;
+            min-height: 0;
+            background: #fff;
+            padding: 0;
+            border: none;
+            border-radius: .28571429rem;
+            -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+            box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+            -webkit-transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+            transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+            transition: box-shadow .1s ease, transform .1s ease;
+            transition: box-shadow .1s ease, transform .1s ease, -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+            z-index: '';
+        }
+        
+        .ui[class*="right fixed"].menu {
+            border-top: none;
+            border-bottom: none;
+            border-right: none;
+            top: 158px;
+            bottom: auto;
+            height: 100%;
+            margin-right: 141px;
+        }
+        
+        ui.mini.image,
+        .ui.mini.images .image,
+        .ui.mini.images img,
+        .ui.mini.images svg {
+            width: 54px;
+            height: auto;
+            font-size: .78571429rem;
+        }
+        
+        .ui.menu:not(.vertical) .item>.input {
+            position: relative;
+            top: 0;
+            margin: -.5em 0;
+            width: 235px;
+        }
+        /* For desktop: */
+        
+        .col-1 {
+            width: 8.33%;
+        }
+        
+        .col-2 {
+            width: 16.66%;
+        }
+        
+        .col-3 {
+            width: 25%;
+        }
+        
+        .col-4 {
+            width: 33.33%;
+        }
+        
+        .col-5 {
+            width: 41.66%;
+        }
+        
+        .col-6 {
+            width: 50%;
+        }
+        
+        .col-7 {
+            width: 58.33%;
+        }
+        
+        .col-8 {
+            width: 66.66%;
+        }
+        
+        .col-9 {
+            width: 75%;
+        }
+        
+        .col-10 {
+            width: 83.33%;
+        }
+        
+        .col-11 {
+            width: 91.66%;
+        }
+        
+        .col-12 {
+            width: 100%;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+        
+        input {
+            width: 560px;
+            border-bottom-color: white;
+            border-top-color: white;
+            border-style: none;
+            height: 34px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var clicks = 0;
+
+        function updateClickCount() {
+            document.getElementById("clickCount").innerHTML = clicks;
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <div class="ui top fixed menu">
+        <div class="ui  three item  menu">
+            <div class=" item">
+                <i class=" big instagram icon"></i>
+                <b>Instagram</b>
+            </div>
+            <div class="item">
+                <div class="ui left icon input">
+                    <input type="text" placeholder="Search users...">
+                    <i class=" users icon"></i>
+                </div>
+            </div>
+            <div class="item">
+                <a href="https://www.facebook.com/hunda.lewis" style="color:black"> </a>
+                <a href="{% url 'create_post' %}"> <i class=" large compass outline icon" style="color:black"></i>
+                </a>
+                <i class=" large heart outline icon" style="color:black"></i>
+                <a href="{% url 'profile'  %}">
+                    <i class=" large user outline icon" style="color:black"></i>
+
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui divider"></div>
+    <div class="ui divider"></div>
+
+    <div class="ui divider"></div>
+
+
+    <div class="ui divider"></div>
+
+    <div class="ui divider"></div>
+
+
+
+
+    <div class="ui grid">
+
+        <div class="sixteen wide column">
+
+
+            <div class="ui container">
+
+
+
+                <div class="ui right fixed vertical menu">
+                    <img class="ui mini image" src="https://static.pexels.com/photos/268533/pexels-photo-268533.jpeg">
+
+                    <div class="item">
+                        <div class="stories" style="font-size: 22px;font-stretch: 12px;font-style:  oblique;"> stories</div>
+                        <div class="watchall" style="margin-left: 144px;margin-top: -17px;font-family:  cursive;font-size: 1em;">watchall
+                            <i class="play icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="item">
+
+                        {% for user in users %}
+
+                        <a href="{% url 'view_profile_with_pk' pk=user.pk %}">
+                            <img class="ui avatar image" src="https://static.pexels.com/photos/268533/pexels-photo-268533.jpeg">{{user.username}}</a>
+                        <button type="button" name="button" class="btn btn-primary btn-md  pull-right  ">Follow </button>
+                        <button type="button" name="button" class="btn btn-primary btn-md pull-right">Unfollow </button>
+
+
+                        <br/>
+
+                        <a href="{{ 'profile' }}">
+
+                        </a>
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+                {% for img in images %}
+
+                <div class="ui card" style="width: 51%;">
+                    <div class="content">
+                        {% for prof in profile %} {% if prof.profile_img %}
+                        <div class="right floated meta">14h</div>
+                        <img class="ui avatar image" src='{{prof.profile_img.url}}'> {% endif %} {% endfor %}
+
+                    </div>
+                    <div class="image">
+
+                        <a href="#">
+                            <img src="{{img.image.url}}" style="/* size:  12px; */width: 100%;">
+                        </a>
+                        {{img.image_caption}}
+
+                    </div>
+                    <div class="content">
+                        <span class="right floated">
+                            <i class=" large bookmark outline icon"></i>
+
+
+                        </span>
+                        <i class=" large heart outline like icon" onClick="clicks++;updateClickCount();" id="push"></i>
+
+
+                        <i class=" large comment outline icon"></i>
+                        <br/>
+                        <span id="clickCount"></span>
+
+                        <br/>
+                        <br/> {% for post in posts %}
+                        <a class="user-comment" href="#">
+                            <b style="margin-right: 12px;">{{ post.user}}</b>
+                        </a>{{post.post}}
+                        <br/>
+                        <i style="float:  right;">{{post.created}}</i> {% endfor %}
+
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+
+
+                            <form method="post">
+                                {% csrf_token %} {{form.errors}} {{form.post}}
+
+
+
+                            </form>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {% endfor %}
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+
+
+</html>

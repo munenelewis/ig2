@@ -1,0 +1,48 @@
+ {% block content %}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.js"></script>
+
+
+    <style>
+        ul {
+            display: none;
+        }
+        
+        span {
+            display: none;
+        }
+        
+        form {
+            width: 237px;
+            text-align: center;
+            border: solid;
+            margin-left: 40%;
+            margin-top: 23px;
+        }
+        
+        body {
+            background-color: #928ea2;
+        }
+    </style>
+</head>
+
+<form class="ui form" method="Post">
+    {% csrf_token %} {{ form.as_p }}
+
+
+
+    <div class="ui buttons">
+        <button class="ui button" type="cancel">Cancel</button>
+        <div class="or"></div>
+        <button class="ui positive button" type="submit">Save</button>
+    </div>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% include 'base.html' %} {% block content %}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.js"></script>
+
+</head>
+<style>
+    #btn {
+        color: black;
+    }
+</style>
+
+<div class="ui four column doubling stackable grid container" style="
+                                  margin-top: 107px;">
+    <p> {% if user.profile.profile_img %}
+        <img class="ui medium circular image" src="{{ user.profile.profile_img.url }}"> {% endif %} </p>
+    <p></p>
+    <div class="column">
+        <p>
+            <h4>{{user.username}}</h4>
+
+            <br>
+
+            <p>{{user.get_full_name}}</p>
+            {{user.email}} {{user.bio}} {{ user.profile.bio }}
+        </p>
+    </div>
+    <div class="column">
+        <p> <a href="{% url 'edit_profile'  %}"><button class="ui basic loading button"><span id="btn"> edit profile</span></button></a>
+        </p>
+        <p></p>
+    </div>
+    <div class="column">
+        <p></p>
+    </div>
+    {{test}}
+    <div class="ui  images">
+        <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb">
+        <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb">
+        <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb">
+        <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb">
+    </div>
+
+</div>
+
+
+{% for img in image %}
+
+<img src="{{img.image.url}}" alt=""> {{img.image_name}} {% endfor %}
+
+
+
+
+
+
+<div class="ui-contaner" style="    margin-top: 256px;">
+
+    {% for prof in profile %} {{prof.bio}} {% if prof.profile_img %}
+    <img src="{{prof.profile_img.url}}" alt=""> {% endif %}
+    <a href="{% url 'album_profile' prof.id%}"> <button type="submit">aslkdkasldaskljkak</button> </a>
+
+    {% endfor %}
+
+
+
+
+    <p>
+        {{ user }} {{ user.first_name }} {{ user.last_name }} {{ user.email }}
+
+        <ul>
+            <li>
+                {{user.profile}}
+            </li>
+
+            <li>
+                {{user.profile.bio}}
+            </li>
+
+            <li>
+                <img src="">
+            </li>
+        </ul>
+    </p>
+
+    ul class="nav navbar-nav">
+
+
+    <li>
+        <a href="{% url 'profile'  %}"> profile</a>
+    </li>
+    <li>
+        <a href="{% url 'edit_profile'  %}"></a> editprofile</a>
+    </li>
+    <li>
+        <a href="{% url 'change_password'  %}"> changepassword</a>
+    </li>
+
+    <li>
+        <a href="{% url 'reset_password'  %}"> reset password</a>
+    </li>
+
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="/instapp/logout">logout</a>
+        </li>
+    </ul>
+
+
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'register'  %}">register</a>
+                </li>
+
+                <li>
+                    <a href="/instapp/login"> login</a>
+                </li>
+            </ul>
+
+
+
+
+
+            <form action="{% url 'newprofile' %}" method="post" enctype="multipart/form-data">
+                {%csrf_token%} {{profile_form.as_p}}
+                <input type="submit" class="btn btn-outline-secondary btn-lg" value="Post">
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endblock %}

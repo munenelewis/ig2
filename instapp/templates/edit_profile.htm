@@ -1,0 +1,30 @@
+{% include "base.html" %}
+
+<head>
+    <style>
+        form{
+
+    margin-top: 117px;
+        }
+    </style>
+</head>
+
+    {% block content %}
+  
+    <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <button type="submit">edit</button>
+    </form>
+            
+
+    <a href="{% url 'change_password'  %}">change password</a>
+
+
+
+
+    
+        {% endblock  %}
+
+    
