@@ -44,7 +44,6 @@ class Homeview(TemplateView):
 
 
 def post(request):
-    test = 'Working'
     current_user = request.user
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
@@ -55,11 +54,10 @@ def post(request):
             return redirect('home')
     else:
         form = ImageForm()
-    content = {
-        "test": test,
+    arg = {
         "post_form": form,
     }
-    return render(request, 'image_form.html', content)
+    return render(request, 'image_form.html', arg)
 
 
 
@@ -89,6 +87,28 @@ def newprofile(request):
     return render(request, 'profile.html', content)
 
 
+    
+
+
+
 class AlbumUpdate(UpdateView):
     model = Profile
     fields = ['bio','profile_img']
+
+
+
+def detail(request, image_id):
+    try:
+        images = Image.objects.get(pk=image_id)
+    except Image.DoesNotExist:
+        raise Http404('bye')
+    return render(request, 'details.html', {'images':images})
+
+
+def photos(request,photo_id):
+    try:
+        photo = Image.objects.get(id = photo_id)
+        print(photo.location)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"search.html", {"photo":photo})

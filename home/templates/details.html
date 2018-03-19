@@ -1,0 +1,3 @@
+ {% block content %} {% for images in image.images_set.all %} {{images.user}}
+<li>{{images.bio}}</li>
+<img src="{{images.profile_photo}}" alt=""> {% endfor %} {% endblock %}

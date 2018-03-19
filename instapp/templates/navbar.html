@@ -142,7 +142,10 @@
     height: 38px">
         <div class="ui  three item  menu">
             <div class=" item">
-                <i class=" big instagram icon"></i>
+                <a href="{% url 'home'  %}">
+
+                    <i class=" big instagram icon" style="color:black"></i>
+                </a>
                 <b>Instagram</b>
             </div>
             <div class="item">
@@ -150,10 +153,11 @@
                 <form class="form-inline" role="search" action="{% url 'search_results' %} ">
 
                     <div class="ui left icon input">
-                        <input type="search" placeholder="Search users..." name="profile">
+                        <input type="search" placeholder="Search users..." name="profile" style="
+                        width: 339px;
+                    ">
                         <i class=" users icon"></i>
                     </div>
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
 
             </div>
@@ -163,6 +167,11 @@
                 <i class=" large heart outline icon" style="color:black"></i>
                 <a href="{% url 'profile'  %}">
                     <i class=" large user outline icon" style="color:black"></i>
+
+                </a>
+                <a href="/instapp/logout">
+                    <i class=" large external link alternate icon"></i>
+
 
                 </a>
 

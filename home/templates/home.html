@@ -141,13 +141,22 @@
     <div class="ui top fixed menu">
         <div class="ui  three item  menu">
             <div class=" item">
-                <i class=" big instagram icon"></i>
+                <a href="{% url 'home'  %}">
+
+                    <i class=" big instagram icon" style="color:black"></i></a>
                 <b>Instagram</b>
             </div>
             <div class="item">
                 <div class="ui left icon input">
-                    <input type="text" placeholder="Search users...">
-                    <i class=" users icon"></i>
+                    <form class="form-inline" role="search" action="{% url 'search_results' %} ">
+
+                        <div class="ui left icon input">
+                            <input type="search" placeholder="Search users..." name="profile" style="
+                                    width: 339px;
+                                ">
+                            <i class=" users icon"></i>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="item">
@@ -235,14 +244,15 @@
                 <div class="ui card" style="width: 51%;">
                     <div class="content">
                         {% for prof in profile %} {% if prof.profile_img %}
-                        <div class="right floated meta">14h</div>
+                        <div class="right floated meta">{{img.created}}</div>
                         <img class="ui avatar image" src='{{prof.profile_img.url}}'> {% endif %} {% endfor %}
 
                     </div>
                     <div class="image">
 
-                        <a href="#">
-                            <img src="{{img.image.url}}" style="/* size:  12px; */width: 100%;">
+
+                        <a href="{%  url 'photos'  img.id %}">
+                            <img src="{{img.image.url}}" style="/* size:  12px; */width: 100%;" name="redirect" onClick="redirect()">
                         </a>
                         {{img.image_caption}}
 

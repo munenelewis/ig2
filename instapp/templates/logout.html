@@ -1,13 +1,37 @@
-{% include "base.html" %}
+{% include "base.html" %} {% block content %}
+<h1>
+    you have logge out
+</h1>
 
 
 
-    {% block content %}
-    <h1>
-        you have logge out
-    </h1>
+<p>
 
-            
-        {% endblock  %}
 
-    
+    <div class="ui vertical menu">
+        <a href="{% url 'register'  %}" class="teal item">
+                register
+            </a>
+        <a class="item">
+        </a>
+        <a href="/instapp/login" class="item active">
+                    login
+
+            </a>
+        <div class="item">
+            <div class="ui transparent icon input">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}

@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from home.models import Image
 
 
 def register(request):
@@ -53,10 +54,15 @@ def change_password(request):
 
 def view_profile(request, pk=None):
     if pk:
-        user = User.objects.get(pk=pk)
-    else:
-        user = request.user
-    args = {'user': user}
+        current_user = request.user
+    current_user = request.user
+    user = request.user
+
+    images=Image.objects.filter(user=request.user)
+    profile = Profile.objects.all().filter(user_id=current_user)
+
+
+    args = {'user': user,'images':images,'profile':profile}
     return render(request, 'profile.html', args)
 
 
