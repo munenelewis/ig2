@@ -38,14 +38,14 @@ As a user I would like:
 
 ## How to use it
 * must have internet connection
-* Click https://gallaria.herokuapp.com/) <br/>
+* Click  https://github.com/munenelewis/ig2.git/) <br/>
   or <br/>
-* Copyhttps://gallaria.herokuapp.com/ ) and  Paste the link on your prefered browser
+* Copy  https://git.heroku.com/clonie.git  ) and  Paste the link on your prefered browser
 
 
 ## Setup/Installation Requirements
 * internet access
-* git clone https://github.com/munenelewis/Gallery.git 
+* git clone https://github.com/munenelewis/ig2.git/
 * $ cd gallery
 * $ python3.6 -m venv virtual (install virtual environment)
 * $ source virtual/bin/activate
